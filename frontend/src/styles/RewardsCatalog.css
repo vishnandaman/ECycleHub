@@ -1,0 +1,130 @@
+/* Rewards Catalog */
+.rewards-catalog {
+    text-align: center;
+    padding: 20px;
+    color: #2c3e50;
+}
+
+/* Grid Layout for Rewards */
+.rewards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Voucher Card */
+.voucher-card {
+    width: 300px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 2px dashed #f39c12; /* Golden orange border */
+    position: relative;
+}
+
+/* Hover Effect - Gamified Glow */
+.voucher-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(243, 156, 18, 0.3);
+}
+
+/* Header Section */
+.voucher-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+/* Brand Logo */
+.brand-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #3498db;
+    padding: 3px;
+}
+
+/* Brand Name */
+.brand-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #3498db;
+}
+
+/* Voucher Body */
+.voucher-body {
+    padding: 10px 0;
+}
+
+/* Product Image */
+.product-image {
+    width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+/* E-Coins Needed */
+.ecoins-needed {
+    font-weight: bold;
+    color: #f39c12;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* Animated Glow when E-Coins are Enough */
+.ecoins-needed.earned {
+    animation: pulse 1.5s infinite alternate ease-in-out;
+}
+
+/* Glow Animation */
+@keyframes pulse {
+    0% { transform: scale(1); text-shadow: 0 0 5px #f39c12; }
+    100% { transform: scale(1.1); text-shadow: 0 0 10px #f39c12; }
+}
+
+/* Redeem Button */
+.redeem-btn {
+    background: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+/* Redeem Button Hover */
+.redeem-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* Disabled Button (If Not Enough E-Coins) */
+.redeem-btn:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .rewards-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .voucher-card {
+        width: 90%;
+    }
+}

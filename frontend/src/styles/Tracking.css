@@ -1,0 +1,186 @@
+/* General Tracking Page Styles */
+.tracking {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #ecf5ff; /* Light blue background */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Tracking Page Heading */
+.tracking h2 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Pickup Details */
+.pickup-details {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.pickup-details p {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.pickup-details strong {
+    color: #555;
+}
+
+/* Status Tracker */
+.status-tracker {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    padding: 10px 0;
+    position: relative;
+}
+
+/* Status Steps */
+.status-step {
+    text-align: center;
+    position: relative;
+    flex: 1;
+}
+
+/* Step Number */
+.status-step .step-number {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 50%;
+    background: #ddd;
+    color: #666;
+    font-weight: bold;
+    margin: 0 auto 5px;
+    transition: background 0.3s ease-in-out, transform 0.3s;
+}
+
+/* Active Step with Glow */
+.status-step.active .step-number {
+    background: #3498db;
+    color: white;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.6);
+    transform: scale(1.1);
+}
+
+/* Step Label */
+.status-step .step-label {
+    font-size: 14px;
+    color: #777;
+}
+
+/* Connecting Line */
+.status-tracker::before {
+    content: "";
+    position: absolute;
+    top: 17px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #ddd;
+    z-index: -1;
+}
+
+/* Make Progress Line Active */
+.status-step.active::before {
+    background: #3498db;
+}
+
+/* Status Update Button */
+.status-button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+/* Button Hover Effect */
+.status-button:hover {
+    background: #2980b9;
+    transform: scale(1.05);
+}
+
+/* Animated Progress Bar */
+.progress-section {
+    margin-top: 20px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.progress {
+    height: 100%;
+    background: #f39c12;
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Cashback Section */
+.cashback-section {
+    background: #fdf6e3;
+    border: 1px solid #f39c12;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.cashback-section h3 {
+    color: #d35400;
+    font-size: 18px;
+}
+
+/* Loading & Error Messages */
+.loading,
+.error {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.loading {
+    color: #ff9800;
+}
+
+.error {
+    color: #d32f2f;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .tracking {
+        padding: 15px;
+    }
+
+    .status-tracker {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .status-step {
+        margin-bottom: 10px;
+    }
+
+    .progress-bar {
+        height: 8px;
+    }
+}

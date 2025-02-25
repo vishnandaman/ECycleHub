@@ -1,0 +1,161 @@
+/* src/styles/Dashboard.css */
+.cdsc-container {
+    padding: 60px 20px;
+    background-color: #f4f6f9; /* Light gray background */
+    text-align: center;
+}
+
+.cdsc-title {
+    font-size: 36px;
+    color: #2c3e50; /* Dark blue text */
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.cdsc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cdsc-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cdsc-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cdsc-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #3498db; /* Blue icon */
+}
+
+.cdsc-card h3 {
+    font-size: 24px;
+    color: #2c3e50; /* Dark blue text */
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.cdsc-card p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.cdsc-button {
+    background-color: #3498db; /* Blue button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cdsc-button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+/* Gamification Section */
+.gamification-section {
+    margin-top: 60px;
+    padding: 40px 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gamification-title {
+    font-size: 28px;
+    color: #2c3e50; /* Dark blue text */
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.badge {
+    background-color: #3498db; /* Blue badge */
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.badge:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.badge-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.badge h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.badge p {
+    font-size: 14px;
+    color: #e0e0e0; /* Light gray text */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cdsc-title {
+        font-size: 28px;
+    }
+
+    .cdsc-card h3 {
+        font-size: 20px;
+    }
+
+    .cdsc-card p {
+        font-size: 14px;
+    }
+
+    .gamification-title {
+        font-size: 24px;
+    }
+
+    .badges-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+}
+
+/* Animation */
+[data-aos] {
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+[data-aos="fade-up"] {
+    transform: translateY(20px);
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}

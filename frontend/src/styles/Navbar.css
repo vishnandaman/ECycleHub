@@ -1,0 +1,321 @@
+/* 🌟 Navbar Styles */
+.navbar {
+    background: linear-gradient(135deg, #3498db, #217dbb);
+    color: white;
+    padding: 12px 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    position: fixed;
+    width: 100%;
+    height: 60px; /* Fixed height */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 📌 Navbar Container */
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 🔥 Logo */
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.logo a:hover {
+    transform: scale(1.1);
+}
+
+/* 📌 Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+.nav-item{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: larger;
+    font-weight: 600;
+}
+
+/* 📍 Location Display */
+.location-display {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #f1c40f;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 6px 14px;
+    border-radius: 8px;
+    gap: 8px;
+    animation: fadeIn 0.5s ease-in-out;
+    width: 100px;
+}
+
+.location-icon {
+    color: #f1c40f;
+    font-size: 1.3rem;
+}
+
+/* 💰 E-Coins Display with Coin Animation */
+.ecoins-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 300px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #f1c40f;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 🪙 Falling Coins Animation */
+@keyframes fallingCoins {
+    0% { transform: translateY(-10px) rotate(0deg); opacity: 0; }
+    50% { transform: translateY(10px) rotate(45deg); opacity: 0.8; }
+    100% { transform: translateY(20px) rotate(90deg); opacity: 0; }
+}
+
+.ecoins-display::after {
+    content: "🪙";
+    font-size: 1.2rem;
+    position: absolute;
+    top: -5px;
+    right: 10px;
+    animation: fallingCoins 1.5s linear infinite;
+}
+
+/* 🔥 Glow Effect on E-Coins Increase */
+.ecoins-display.gain {
+    animation: glow 0.8s ease-in-out;
+}
+
+@keyframes glow {
+    0% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.2); filter: brightness(1.5); }
+    100% { transform: scale(1); filter: brightness(1); }
+}
+
+/* 🏆 Profile & Actions Section */
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* 🎯 Signup & Login Buttons */
+.signup-button,
+.login-button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid white;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+/* ✅ Signup Button */
+.signup-button {
+    background-color: #2ecc71;
+    color: white;
+    animation: bounceAnimation 1.5s infinite ease-in-out;
+}
+
+/* 🟠 Login Button */
+.login-button {
+    background-color: #f39c12;
+    color: white;
+    animation: bounceAnimation 1.5s infinite ease-in-out;
+}
+
+/* 🚀 Hover Effects */
+.signup-button:hover,
+.login-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+}
+
+/* 🔥 Click Effect */
+.signup-button:active,
+.login-button:active {
+    transform: scale(0.95);
+    box-shadow: none;
+}
+
+/* 🎮 Gamified Bounce Animation */
+@keyframes bounceAnimation {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+/* 🌟 Glowing Shine Effect */
+.signup-button::before,
+.login-button::before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, rgba(0, 0, 0, 0) 70%);
+    transition: opacity 0.3s;
+    opacity: 0;
+}
+
+.signup-button:hover::before,
+.login-button:hover::before {
+    opacity: 1;
+    animation: shineEffect 0.8s linear forwards;
+}
+
+/* ✨ Shine Animation */
+@keyframes shineEffect {
+    0% { transform: translateX(-100%) translateY(-100%); opacity: 0.5; }
+    100% { transform: translateX(100%) translateY(100%); opacity: 0; }
+}
+
+
+.login-button {
+    background-color: #f39c12;
+    color: white;
+}
+
+.login-button:hover {
+    background-color: #e67e22;
+    transform: scale(1.05);
+}
+
+/* 🔴 Logout Button */
+.logout-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+.logout-button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.6);
+}
+.logout-button:active {
+    transform: scale(0.95);
+    box-shadow: none;
+}
+
+/* 🚨 Shake Effect on Hover */
+.logout-button:hover {
+    animation: shake 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px) rotate(-2deg); }
+    50% { transform: translateX(2px) rotate(2deg); }
+    75% { transform: translateX(-2px) rotate(-2deg); }
+    100% { transform: translateX(2px) rotate(2deg); }
+}
+
+/* 🌟 Glow Effect when Hovering */
+.logout-button:hover::after {
+    content: "👋"; /* Adds a waving hand emoji */
+    position: absolute;
+    right: -20px;
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: fadeInEmoji 0.4s forwards;
+}
+
+@keyframes fadeInEmoji {
+    from { opacity: 0; transform: translateX(-5px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* 🏅 Profile Icon */
+.profile-icon {
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.profile-icon:hover {
+    transform: scale(1.2);
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 900px) {
+    .nav-links {
+        display: none;
+    }
+
+    .navbar-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .profile-section {
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 10px;
+        height: 70px;
+    }
+
+    .navbar-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-item {
+        display: block;
+        padding: 10px;
+    }
+
+    .profile-section {
+        justify-content: center;
+        gap: 10px;
+    }
+}

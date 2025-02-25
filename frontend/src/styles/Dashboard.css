@@ -1,0 +1,120 @@
+/* src/styles/Dashboard.css */
+.dashboard {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 100px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+.profile-card {
+    background: linear-gradient(135deg, #3498db, #184563);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.profile-icon {
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+.ecoins-balance {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.wallet, .ewaste-list, .gamification {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.wallet:hover, .ewaste-list:hover, .gamification:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.wallet h3, .ewaste-list h3, .gamification h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #000;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.progress-bar {
+    background-color: #ddd;
+    border-radius: 10px;
+    height: 10px;
+    margin: 10px 0;
+}
+
+.progress {
+    background-color: #3498db;
+    height: 100%;
+    border-radius: 10px;
+    width: 0;
+    transition: width 0.5s ease;
+}
+
+.redeem-button, .schedule-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.redeem-button:hover, .schedule-button:hover {
+    background-color: #2980b9;
+}
+
+.redeem-button:disabled, .schedule-button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+.badges {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.badge {
+    background-color: #3498db;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.badge:hover {
+    background-color: #2980b9;
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+}

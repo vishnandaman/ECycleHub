@@ -1,0 +1,160 @@
+/* 🎥 Hero Section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+/* Background Video */
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Dark Overlay for Readability */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* 60% black transparency */
+    z-index: 0;
+}
+
+/* Hero Content */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.home-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.home-description {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.home-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.home-button:hover {
+    background-color: #218838;
+}
+
+/* 🏆 Gamification Section */
+.gamification-section {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #f4f9f4; /* Light green background */
+    width: 100%;
+}
+
+.gamification-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #2c3e50; /* Dark blue text */
+    font-weight: 600;
+}
+
+/* 🌱 Animated Progress Bar */
+.progress-bar {
+    width: 60%;
+    height: 20px;
+    background-color: #28a745; /* Light green background */
+    border-radius: 10px;
+    margin: 20px auto;
+    overflow: hidden;
+    position: relative;
+}
+.progress {
+    height: 100%;
+    background-color: #218838; /* Green fill */
+    border-radius: 10px;
+    width: 0; /* Start from 0 */
+    transition: width 1.5s ease-in-out;
+}
+.animated-progress {
+    animation: growProgress 1.5s ease-in-out forwards;
+}
+
+@keyframes growProgress {
+    from { width: 0; }
+    to { width: 60%; } /* Ensure same as JavaScript */
+}
+.gamification-section p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* ♻️ Map Section */
+.map-section {
+    padding: 80px 20px;
+    width: 100%;
+    background-color: white;
+    text-align: center;
+}
+
+.map-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #2c3e50; /* Dark blue text */
+    font-weight: 600;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+    .home-title {
+        font-size: 36px;
+    }
+
+    .home-description {
+        font-size: 16px;
+    }
+
+    .home-button {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+
+    .gamification-section h2,
+    .map-section h2 {
+        font-size: 28px;
+    }
+
+    .gamification-section p {
+        font-size: 16px;
+    }
+
+    .progress-bar {
+        width: 80%;
+    }
+}
