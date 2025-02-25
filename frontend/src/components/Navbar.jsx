@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { auth, db } from "../firebaseConfig"; // Firebase auth & Firestore
 import { onAuthStateChanged, signOut } from "firebase/auth"; // Firebase methods
 import { doc, onSnapshot } from "firebase/firestore"; // Firestore methods
-import { FaUserCircle, FaCoins, FaMapMarkerAlt } from "react-icons/fa"; // React Icons
+import { FaUserCircle, FaCoins, FaMapMarkerAlt ,FaHome} from "react-icons/fa"; // React Icons
 import "../styles/Navbar.css";
 
 const Navbar = () => {
