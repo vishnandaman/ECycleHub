@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { db } from "../firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 import "../styles/RefurbishedStore.css";
 
 const RefurbishedStore = () => {
