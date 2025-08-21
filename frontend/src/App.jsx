@@ -9,6 +9,8 @@ import Dashboard from "./pages/Dashboard";
 import EwasteForm from "./components/EwasteForm";
 import Tracking from "./components/Tracking";
 import RefurbishedStore from "./pages/RefurbishedStore";
+import RecyclingMap from "./components/RecyclingMap";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route path="/ewaste-form" element={<EwasteForm/>}/>
         <Route path="/tracking/:trackingId" element={<Tracking/>}/>
         <Route path="/refurbished-store" element={<RefurbishedStore />} />
+        <Route path="/recycling-map" element={<RecyclingMap />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </Router>
   );
