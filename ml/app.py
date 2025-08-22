@@ -11,9 +11,8 @@ app = Flask(__name__)
 CORS(app)
 
 # Load the saved model (update MODEL_PATH as needed)
-# Fix the escape sequence issue by using raw string or forward slashes
-MODEL_PATH = r"D:\EcycleHub\ECycleHub\ml\BestSavedModel.keras"
-# Alternative: MODEL_PATH = "D:/EcycleHub/ECycleHub/ml/BestSavedModel.keras"
+# Use environment variable or default path
+MODEL_PATH = os.environ.get("MODEL_PATH", "./BestSavedModel.keras")
 
 # Load model using the robust loader
 print("Loading model...")
@@ -155,4 +154,5 @@ def health_check():
     })
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5001)  # Run on port 5001
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
