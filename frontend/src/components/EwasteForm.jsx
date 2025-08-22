@@ -168,12 +168,16 @@ const EwasteForm = () => {
     setLoading(true);
     setError("");
 
-    try {
-      const user = auth.currentUser;
-      if (!user) {
-        throw new Error("User not authenticated");
-      }
+    // Early auth guard to avoid throwing and show friendly UX
+    const user = auth.currentUser;
+    if (!user) {
+      setLoading(false);
+      setError("Please login to schedule a pickup. Redirecting to login...");
+      setTimeout(() => navigate("/login", { replace: true, state: { from: "/ewaste-form" } }), 1200);
+      return;
+    }
 
+    try {
       const userRef = doc(db, "users", user.uid);
       
       // Calculate E-Coins based on item type and condition
@@ -207,7 +211,12 @@ const EwasteForm = () => {
 
     } catch (error) {
       console.error("Form submission failed:", error);
-      setError("Failed to submit form. Please try again.");
+      if (String(error?.message || "").toLowerCase().includes("not authenticated")) {
+        setError("Please login to schedule a pickup. Redirecting to login...");
+        setTimeout(() => navigate("/login", { replace: true, state: { from: "/ewaste-form" } }), 1200);
+      } else {
+        setError("Failed to submit form. Please try again.");
+      }
     } finally {
       setLoading(false);
     }
