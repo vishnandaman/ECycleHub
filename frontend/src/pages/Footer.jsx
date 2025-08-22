@@ -1,5 +1,5 @@
 import React from "react";
-import { FaRecycle, FaMapMarkerAlt, FaPhone, FaEnvelope, FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import {FaMapMarkerAlt, FaPhone, FaEnvelope, FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import "../styles/Footer.css";
 
 const Footer = () => {
@@ -44,8 +44,8 @@ const Footer = () => {
           <div className="footer-section">
             <h4>Our Services</h4>
             <ul className="footer-links">
-              <li><FaRecycle /> E-Waste Collection</li>
-              <li><FaMapMarkerAlt /> Local Pickup</li>
+              <li>E-Waste Collection</li>
+              <li>Local Pickup</li>
               <li>Recycling Centers</li>
               <li>Rewards Program</li>
             </ul>

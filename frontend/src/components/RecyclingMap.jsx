@@ -1,22 +1,23 @@
 import { useEffect, useState, useCallback } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from "react-leaflet";
-import { updateDoc, increment, arrayUnion, doc } from "firebase/firestore"; // Add doc import
+import { updateDoc, increment, arrayUnion, doc } from "firebase/firestore";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
-import { auth, db } from "../firebaseConfig"; // Import auth and db
+import { auth, db } from "../firebaseConfig";
+import { FaMapMarkerAlt, FaRecycle, FaStar, FaPhone, FaMapPin, FaRoute } from "react-icons/fa";
 import "../styles/Map.css";
 
 // User location marker (blue icon)
 const userIcon = new L.Icon({
     iconUrl: markerIcon,
     shadowUrl: markerShadow,
-    iconSize: [30, 45],  // Default Leaflet marker size
+    iconSize: [30, 45],
     shadowSize: [41, 41], 
     iconAnchor: [12, 41], 
     popupAnchor: [1, -34],
-  });
+});
 
 // Recycler marker (green bin icon)
 const recyclerIcon = new L.Icon({
@@ -26,8 +27,7 @@ const recyclerIcon = new L.Icon({
     shadowSize: [41, 41], 
     iconAnchor: [12, 41], 
     popupAnchor: [1, -34],
-  });
-  
+});
 
 // Hardcoded authorized recyclers
 const recyclers = [
@@ -257,7 +257,7 @@ const recyclers = [
   }
 ];
 
-// Hook to handle map clicks (for future gamification)
+// Hook to handle map clicks
 const ClickHandler = ({ onVisit }) => {
   useMapEvents({
     click: (e) => {
@@ -310,7 +310,7 @@ const RecyclingMap = () => {
     }, [userLocation, updateNearestRecycler]);
   
     const handleVisit = async (recyclerId) => {
-        if (visitedRecyclers.has(recyclerId)) return; // Prevent duplicate visits
+        if (visitedRecyclers.has(recyclerId)) return;
     
         const user = auth.currentUser;
         if (!user) {
@@ -321,12 +321,10 @@ const RecyclingMap = () => {
         try {
           const userRef = doc(db, "users", user.uid);
     
-          // Update E-Coins in Firestore
           await updateDoc(userRef, {
-            ecoins: increment(10), // Increment E-Coins by 10
+            ecoins: increment(10),
           });
     
-          // Add transaction history
           await updateDoc(userRef, {
             transactions: arrayUnion({
               type: "Recycler Visit",
@@ -343,49 +341,123 @@ const RecyclingMap = () => {
       };
   
     return (
-      <div className="map-container">
-        <p className="map-info">Click a recycler to mark it as visited & earn E-Coins!</p>
+      <div className="recycling-map-page">
+        <div className="map-header">
+          <div className="map-header-content">
+            <h1 className="map-title">
+              <FaMapMarkerAlt className="map-title-icon" />
+              Recycling Centers Map
+            </h1>
+            <p className="map-description">
+              Discover authorized e-waste recycling centers near you. Click on markers to visit and earn E-Coins!
+            </p>
+          </div>
+        </div>
+
+        <div className="map-container">
+          <div className="map-info-panel">
+            <div className="info-card">
+              <FaRecycle className="info-icon" />
+              <div className="info-content">
+                <h3>Find Recyclers</h3>
+                <p>Locate authorized e-waste recycling centers in your area</p>
+              </div>
+            </div>
+            <div className="info-card">
+              <FaStar className="info-icon" />
+              <div className="info-content">
+                <h3>Earn Rewards</h3>
+                <p>Get 10 E-Coins for each recycling center you visit</p>
+              </div>
+            </div>
+            <div className="info-card">
+              <FaRoute className="info-icon" />
+              <div className="info-content">
+                <h3>Track Progress</h3>
+                <p>Monitor your recycling journey and environmental impact</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="map-wrapper">
+            <MapContainer 
+              center={userLocation || [20.5937, 78.9629]} 
+              zoom={6} 
+              className="map-component"
+            >
+              <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
   
-        <MapContainer center={userLocation || [20.5937, 78.9629]} zoom={6} style={{ height: "500px", width: "100%" }}>
-          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+              {userLocation && (
+                <Marker position={userLocation} icon={userIcon}>
+                  <Popup>
+                    <div className="popup-content">
+                      <FaMapMarkerAlt className="popup-icon" />
+                      <strong>You are here!</strong>
+                    </div>
+                  </Popup>
+                </Marker>
+              )}
   
-          {/* User Location Marker */}
-          {userLocation && (
-            <Marker position={userLocation} icon={userIcon}>
-              <Popup><strong>You are here!</strong></Popup>
-            </Marker>
-          )}
+              {recyclers.map((recycler) => {
+                const distance = userLocation ? calculateDistance(userLocation[0], userLocation[1], recycler.lat, recycler.lon) : null;
   
-          {/* Recycler Markers */}
-          {recyclers.map((recycler) => {
-            const distance = userLocation ? calculateDistance(userLocation[0], userLocation[1], recycler.lat, recycler.lon) : null;
+                return (
+                  <Marker 
+                    key={recycler.id} 
+                    position={[recycler.lat, recycler.lon]} 
+                    icon={recyclerIcon} 
+                    eventHandlers={{ click: () => handleVisit(recycler.id) }}
+                  >
+                    <Popup>
+                      <div className="recycler-popup">
+                        <h4 className="recycler-name">
+                          <FaRecycle className="popup-icon" />
+                          {recycler.name}
+                        </h4>
+                        <div className="recycler-details">
+                          <p className="recycler-address">
+                            <FaMapPin className="detail-icon" />
+                            {recycler.address}
+                          </p>
+                          <p className="recycler-phone">
+                            <FaPhone className="detail-icon" />
+                            {recycler.phone}
+                          </p>
+                          {distance && (
+                            <p className="recycler-distance">
+                              <FaRoute className="detail-icon" />
+                              {distance} meters away
+                            </p>
+                          )}
+                        </div>
+                        <div className="recycler-status">
+                          {visitedRecyclers.has(recycler.id) ? (
+                            <span className="status-visited">✅ Visited!</span>
+                          ) : (
+                            <span className="status-unvisited">👆 Click to visit & earn E-Coins</span>
+                          )}
+                        </div>
+                      </div>
+                    </Popup>
+                  </Marker>
+                );
+              })}
   
-            return (
-              <Marker key={recycler.id} position={[recycler.lat, recycler.lon]} icon={recyclerIcon} eventHandlers={{ click: () => handleVisit(recycler.id) }}>
-                <Popup>
-                  <strong>{recycler.name}</strong>
-                  <br />
-                  📍 {recycler.address}
-                  <br />
-                  📞 {recycler.phone}
-                  <br />
-                  {distance && <div>📏 Distance: {distance} meters</div>}
-                  <br />
-                  {visitedRecyclers.has(recycler.id) ? "✅ Visited!" : "👆 Click to visit & earn E-Coins"}
-                </Popup>
-              </Marker>
-            );
-          })}
-  
-          <ClickHandler onVisit={() => {}} />
-        </MapContainer>
-  
-        {/* Nearest Recycler Alert */}
+              <ClickHandler onVisit={() => {}} />
+            </MapContainer>
+          </div>
+        </div>
+
         {minDistance && (
-          <div className="min-distance-alert">
-            <strong>Nearest Recycler Found! 👉</strong><br />
-            {recyclers.find((r) => r.id === minDistance.id)?.name}<br />
-            Only {minDistance.distance} meters away!
+          <div className="nearest-recycler-alert">
+            <div className="alert-content">
+              <FaStar className="alert-icon" />
+              <div className="alert-text">
+                <strong>Nearest Recycler Found!</strong>
+                <p>{recyclers.find((r) => r.id === minDistance.id)?.name}</p>
+                <span>Only {minDistance.distance} meters away!</span>
+              </div>
+            </div>
           </div>
         )}
       </div>

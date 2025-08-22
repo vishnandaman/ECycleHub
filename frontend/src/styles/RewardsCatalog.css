@@ -1,130 +1,588 @@
-/* Rewards Catalog */
+/* Rewards Catalog Styles */
 .rewards-catalog {
-    text-align: center;
-    padding: 20px;
-    color: #2c3e50;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
 }
 
-/* Grid Layout for Rewards */
-.rewards-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+/* Loading State */
+.rewards-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
 }
 
-/* Voucher Card */
-.voucher-card {
-    width: 300px;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    text-align: center;
-    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
-    border: 2px dashed #f39c12; /* Golden orange border */
-    position: relative;
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
 }
 
-/* Hover Effect - Gamified Glow */
-.voucher-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(243, 156, 18, 0.3);
+.spinner-icon {
+  font-size: 3rem;
+  color: var(--color-accent);
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner p {
+  font-size: 1.1rem;
+  color: var(--color-muted);
 }
 
 /* Header Section */
-.voucher-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 10px;
+.rewards-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Brand Logo */
+.header-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.rewards-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.title-icon {
+  font-size: 2rem;
+  color: var(--color-accent);
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.rewards-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-muted);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.user-balance {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--color-accent), #ff6b6b);
+  color: white;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
+  animation: slideInUp 0.8s ease 0.5s both;
+}
+
+.balance-icon {
+  font-size: 1.2rem;
+}
+
+/* Rewards Grid */
+.rewards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Reward Card */
+.reward-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.reward-card.slide-in-left {
+  animation: slideInLeft 0.8s ease forwards;
+}
+
+.reward-card.slide-in-right {
+  animation: slideInRight 0.8s ease forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.reward-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Header */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-2));
+  color: white;
+}
+
+.brand-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .brand-logo {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid #3498db;
-    padding: 3px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Brand Name */
 .brand-name {
-    font-size: 18px;
-    font-weight: bold;
-    color: #3498db;
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
-/* Voucher Body */
-.voucher-body {
-    padding: 10px 0;
+.card-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.badge-icon {
+  color: #ffd700;
 }
 
 /* Product Image */
+.product-image-container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
 .product-image {
-    width: 100%;
-    max-height: 150px;
-    object-fit: contain;
-    margin-bottom: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-/* E-Coins Needed */
-.ecoins-needed {
-    font-weight: bold;
-    color: #f39c12;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
+.reward-card:hover .product-image {
+  transform: scale(1.1);
 }
 
-/* Animated Glow when E-Coins are Enough */
-.ecoins-needed.earned {
-    animation: pulse 1.5s infinite alternate ease-in-out;
+.image-overlay {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-/* Glow Animation */
-@keyframes pulse {
-    0% { transform: scale(1); text-shadow: 0 0 5px #f39c12; }
-    100% { transform: scale(1.1); text-shadow: 0 0 10px #f39c12; }
+.reward-card:hover .image-overlay {
+  opacity: 1;
 }
 
-/* Redeem Button */
+.wishlist-icon {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.wishlist-icon:hover {
+  transform: scale(1.1);
+  color: #ff6b6b;
+}
+
+/* Product Info */
+.product-info {
+  padding: 1.5rem;
+}
+
+.product-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.product-description {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.ecoins-required {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(233, 69, 96, 0.1), rgba(255, 107, 107, 0.1));
+  border-radius: 12px;
+  border-left: 4px solid var(--color-accent);
+}
+
+.ecoins-icon {
+  font-size: 1.2rem;
+  color: var(--color-accent);
+}
+
+.ecoins-text {
+  font-weight: 600;
+  color: var(--color-primary);
+  font-size: 1.1rem;
+}
+
+/* Progress Container */
+.progress-container {
+  margin-bottom: 1.5rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-accent), #ff6b6b);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.progress-text {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+/* Card Actions */
+.card-actions {
+  padding: 0 1.5rem 1.5rem;
+}
+
 .redeem-btn {
-    background: #3498db;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
-    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Redeem Button Hover */
-.redeem-btn:hover {
-    background: #2980b9;
-    transform: translateY(-2px);
+.redeem-btn.available {
+  background: linear-gradient(135deg, var(--color-accent), #ff6b6b);
+  color: white;
+  box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
 }
 
-/* Disabled Button (If Not Enough E-Coins) */
+.redeem-btn.available:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(233, 69, 96, 0.4);
+}
+
+.redeem-btn.unavailable {
+  background: #e9ecef;
+  color: var(--color-muted);
+  cursor: not-allowed;
+}
+
 .redeem-btn:disabled {
-    background: #bdc3c7;
-    cursor: not-allowed;
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .rewards-grid {
-        flex-direction: column;
-        align-items: center;
-    }
+.redeem-icon {
+  font-size: 1.1rem;
+}
 
-    .voucher-card {
-        width: 90%;
-    }
+/* Loading Dots */
+.loading-dots {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.loading-dots span {
+  width: 6px;
+  height: 6px;
+  background: currentColor;
+  border-radius: 50%;
+  animation: loadingDots 1.4s ease-in-out infinite both;
+}
+
+.loading-dots span:nth-child(1) { animation-delay: -0.32s; }
+.loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes loadingDots {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+/* Success Modal */
+.success-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideInUp 0.3s ease;
+}
+
+.success-animation {
+  margin-bottom: 1.5rem;
+}
+
+.success-icon {
+  font-size: 4rem;
+  color: #28a745;
+  animation: successPulse 0.6s ease;
+}
+
+@keyframes successPulse {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.modal-content h3 {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.modal-content p {
+  color: var(--color-muted);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.modal-close-btn {
+  padding: 0.8rem 2rem;
+  background: linear-gradient(135deg, var(--color-accent), #ff6b6b);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-close-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.empty-icon {
+  font-size: 4rem;
+  color: var(--color-muted);
+  margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+  color: var(--color-muted);
+  font-size: 1.1rem;
+}
+
+/* Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .rewards-catalog {
+    padding: 1rem;
+  }
+  
+  .rewards-header {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .rewards-title {
+    font-size: 2rem;
+  }
+  
+  .rewards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .card-header {
+    padding: 1rem;
+  }
+  
+  .product-info {
+    padding: 1rem;
+  }
+  
+  .card-actions {
+    padding: 0 1rem 1rem;
+  }
+  
+  .modal-content {
+    padding: 2rem;
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .rewards-title {
+    font-size: 1.5rem;
+  }
+  
+  .user-balance {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .product-name {
+    font-size: 1.1rem;
+  }
+  
+  .ecoins-required {
+    padding: 0.8rem;
+  }
+  
+  .redeem-btn {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
 }

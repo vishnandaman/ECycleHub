@@ -39,14 +39,7 @@ const Home = () => {
         <div className="hero-gradient-overlay"></div>
         
         <div className="hero-content">
-          <div className="brand-logo">
-            <img
-              src="/suvidha_logo-removebg-preview.png"
-              alt="आपली सुविधा Logo"
-              className="hero-logo"
-            />
-          </div>
-          <h1 className="brand-name">Smart Waste Management Platform</h1>
+          <h1 className="brand-name">आपली सुविधा</h1>
           <p className="hero-description">
             Connect with local scrap vendors and recyclers. Book pickups, earn rewards,
             and contribute to a sustainable future.
@@ -228,127 +221,59 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Enhanced AI Waste Detection USP Section */}
-      <section className="ai-usp-section">
+      {/* AI Waste Detection Section */}
+      <section className="ai-section">
         <div className="container">
-          <h2 className="section-title">Our Unique AI-Powered Solution</h2>
-          <div className="ai-usp-content">
-            <div className="ai-usp-text">
-              <h3>Revolutionary Waste Classification</h3>
-              <p>
-                Experience the future of waste management with our cutting-edge AI technology. 
-                Our advanced machine learning model instantly classifies electronic waste with 
-                95% accuracy, providing real-time insights and fair pricing estimates.
-              </p>
-              <div className="ai-features">
-                <div className="ai-feature">
-                  <div className="ai-feature-icon">
-                    <FaRecycle />
-                  </div>
-                  <div className="ai-feature-content">
-                    <h4>Instant Classification</h4>
-                    <p>Upload a photo and get results in seconds</p>
-                  </div>
-                </div>
-                <div className="ai-feature">
-                  <div className="ai-feature-icon">
-                    <FaStar />
-                  </div>
-                  <div className="ai-feature-content">
-                    <h4>95% Accuracy</h4>
-                    <p>Industry-leading precision in waste detection</p>
-                  </div>
-                </div>
-                <div className="ai-feature">
-                  <div className="ai-feature-icon">
-                    <FaHandshake />
-                  </div>
-                  <div className="ai-feature-content">
-                    <h4>Fair Pricing</h4>
-                    <p>Transparent and competitive market rates</p>
-                  </div>
-                </div>
+          <h2 className="section-title">AI-Powered Waste Detection</h2>
+          <p className="section-subtitle">Smart technology for accurate waste classification</p>
+          
+          <div className="ai-content" data-aos="fade-up">
+            <div className="ai-stats">
+              <div className="ai-stat">
+                <span className="stat-number">95%</span>
+                <span className="stat-label">Accuracy</span>
               </div>
-          <button
-                className="primary-btn"
-            onClick={() => navigate("/ewaste-form")}
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-                <FaArrowRight /> Try AI Waste Detection
-          </button>
-            </div>
-            <div className="ai-usp-visual">
-              <div className="ai-visual-container">
-                <div className="ai-animation">
-                  <FaRecycle className="ai-icon" />
-                  <div className="ai-particles"></div>
-                </div>
-                <div className="ai-stats">
-                  <div className="ai-stat">
-                    <span className="ai-stat-number">95%</span>
-                    <span className="ai-stat-label">Accuracy</span>
-                  </div>
-                  <div className="ai-stat">
-                    <span className="ai-stat-number">2s</span>
-                    <span className="ai-stat-label">Response Time</span>
-                  </div>
-                </div>
+              <div className="ai-stat">
+                <span className="stat-number">2s</span>
+                <span className="stat-label">Response</span>
+              </div>
+              <div className="ai-stat">
+                <span className="stat-number">10+</span>
+                <span className="stat-label">Types</span>
               </div>
             </div>
+
+            <div className="ai-features">
+              <div className="ai-feature" data-aos="fade-up" data-aos-delay="100">
+                <FaRecycle className="feature-icon" />
+                <h4>Instant Classification</h4>
+                <p>Upload photos for immediate waste identification</p>
+              </div>
+              <div className="ai-feature" data-aos="fade-up" data-aos-delay="200">
+                <FaChartLine className="feature-icon" />
+                <h4>Smart Pricing</h4>
+                <p>Get accurate market value estimates</p>
+              </div>
+              <div className="ai-feature" data-aos="fade-up" data-aos-delay="300">
+                <FaLeaf className="feature-icon" />
+                <h4>Eco Impact</h4>
+                <p>Track your environmental contribution</p>
+              </div>
+            </div>
+
+            <button
+              className="primary-btn ai-btn"
+              onClick={() => navigate("/ewaste-form")}
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <FaArrowRight /> Try AI Detection
+            </button>
+          </div>
         </div>
-      </div>
       </section>
 
-      {/* Team Journey Section */}
-      <section className="team-journey-section">
-        <div className="container">
-          <h2 className="section-title">Our Journey - From Students to Innovators</h2>
-          <div className="team-journey-content">
-            <div className="journey-text">
-              <h3>The Story Behind Aapli Suvidha</h3>
-              <p>
-                Built by passionate students who experienced waste management challenges firsthand. 
-                From conducting surveys to collecting garbage and plastic, we've learned valuable 
-                lessons about sustainability and community impact.
-              </p>
-              <div className="journey-highlights">
-                <div className="journey-item">
-                  <FaUsers />
-                  <span>Student-Led Innovation</span>
-                </div>
-                <div className="journey-item">
-                  <FaRecycle />
-                  <span>Real-World Experience</span>
-                </div>
-                <div className="journey-item">
-                  <FaHandshake />
-                  <span>Community Focused</span>
-                </div>
-              </div>
-            </div>
-            <div className="team-image-container">
-              <img 
-                src="/founding-team.jpg" 
-                alt="Founding Team Journey" 
-                className="team-journey-image"
-              />
-              <div className="team-overlay">
-                <div className="team-badges">
-                  <div className="team-badge">
-                    <FaStar />
-                    <span>CEO</span>
-                  </div>
-                  <div className="team-badge">
-                    <FaStar />
-                    <span>COO</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-      </section>
+
 
       {/* Map Section */}
       <section className="map-section">
