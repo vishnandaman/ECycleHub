@@ -96,7 +96,11 @@ const Footer = () => {
         </div>
 
         <div className="copyright">
-          <p>© 2024 <strong>आपली सुविधा</strong>. All rights reserved. | Made with ❤️ for a sustainable future</p>
+          <p>© 2025 <strong>आपली सुविधा</strong>. All rights reserved. | Made with ❤️ for a sustainable future</p>
+          <div className="credits">
+            <p><strong>Developed by:</strong> Aman Vishwakarma</p>
+            <p><strong>Concept by:</strong> Aapli Suvidha Team</p>
+          </div>
         </div>
       </div>
     </footer>
