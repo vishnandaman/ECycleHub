@@ -6,8 +6,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Footer from "./Footer";
 import CDSC from "../components/CDSC";
-import backgroundVideo from "../assets/video1.mp4";
-
 const Home = () => {
   const navigate = useNavigate();
   const [typedText, setTypedText] = useState("");
@@ -32,8 +30,9 @@ const Home = () => {
     <div className="home">
       {/* Hero Section */}
       <section className="hero-section">
-        <video className="background-video" autoPlay loop muted>
-          <source src="/src/assets/video1.mp4" type="video/mp4" />
+        <video className="background-video" autoPlay loop muted playsInline>
+          <source src="/video1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
         <div className="video-overlay"></div>
         <div className="hero-gradient-overlay"></div>
