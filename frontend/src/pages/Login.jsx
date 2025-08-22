@@ -29,11 +29,7 @@ const Login = () => {
 
   return (
     <div className="auth-page">
-      <div className="auth-background">
-        <div className="auth-particles"></div>
-        <div className="auth-particles"></div>
-        <div className="auth-particles"></div>
-      </div>
+      <div className="auth-background"></div>
       
       <div className="auth-container login-container">
         <div className="auth-header">

@@ -48,11 +48,7 @@ const Signup = () => {
 
   return (
     <div className="auth-page">
-      <div className="auth-background">
-        <div className="auth-particles"></div>
-        <div className="auth-particles"></div>
-        <div className="auth-particles"></div>
-      </div>
+      <div className="auth-background"></div>
       
       <div className="auth-container signup-container">
         <div className="auth-header">
