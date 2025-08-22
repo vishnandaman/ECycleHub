@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import config from "../config";
 import "../styles/Tracking.css";
 import LiveTrackingMap from "./LiveTrackingMap";
 
@@ -26,7 +27,7 @@ const Tracking = () => {
   useEffect(() => {
     const fetchPickupStatus = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/tracking/${trackingId}`);
+        const response = await axios.get(`${config.BACKEND_URL}/api/tracking/${trackingId}`);
         if (response.data) {
           setPickup(response.data);
           setStatus(response.data.status || "scheduled"); // Set initial status

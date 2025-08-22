@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import config from "../config";
 import { FaGift, FaCoins, FaStar, FaShoppingCart, FaHeart, FaCheck } from "react-icons/fa";
 import "../styles/RewardsCatalog.css";
 
@@ -19,7 +20,7 @@ const RewardsCatalog = () => {
   const fetchRewards = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:5000/api/rewards");
+      const response = await axios.get(`${config.BACKEND_URL}/api/rewards`);
       setRewards(response.data);
     } catch (error) {
       console.error("Error fetching rewards:", error);

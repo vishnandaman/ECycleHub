@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { updateDoc, increment, arrayUnion, doc } from "firebase/firestore";
 import { auth, db } from "../firebaseConfig";
+import config from "../config";
 import { 
   FaRecycle, 
   FaCamera, 
@@ -117,7 +118,7 @@ const EwasteForm = () => {
     formData.append("file", file);
 
     try {
-      const response = await axios.post("http://localhost:5001/predict", formData, {
+      const response = await axios.post(`${config.ML_API_URL}/predict`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
