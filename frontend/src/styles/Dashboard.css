@@ -744,7 +744,7 @@
   }
 }
 
-/* Responsive Design */
+/* Enhanced Mobile Responsive Design */
 @media (max-width: 768px) {
   .dashboard {
     padding-bottom: 1rem;
@@ -752,6 +752,7 @@
   
   .dashboard-header {
     padding: 1.5rem;
+    margin-bottom: 1.5rem;
   }
   
   .header-content {
@@ -762,10 +763,16 @@
   .welcome-section {
     flex-direction: column;
     text-align: center;
+    gap: 1rem;
   }
   
   .welcome-text {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+  
+  .user-email {
+    font-size: 1rem;
   }
   
   .quick-stats {
@@ -775,16 +782,38 @@
   
   .stat-card {
     min-width: auto;
+    padding: 1.2rem;
+  }
+  
+  .stat-icon {
+    font-size: 1.8rem;
+  }
+  
+  .stat-number {
+    font-size: 1.6rem;
+  }
+  
+  .stat-label {
+    font-size: 0.85rem;
   }
   
   .dashboard-tabs {
     padding: 0 1rem;
     gap: 0.5rem;
+    margin-bottom: 1.5rem;
   }
   
   .tab-btn {
     padding: 0.8rem 1rem;
     font-size: 0.9rem;
+    min-height: 44px;
+    flex: 1;
+    min-width: 120px;
+    justify-content: center;
+  }
+  
+  .tab-icon {
+    font-size: 1rem;
   }
   
   .tab-content {
@@ -800,8 +829,26 @@
     padding: 1.5rem;
   }
   
+  .card-header h3 {
+    font-size: 1.2rem;
+  }
+  
+  .card-icon {
+    font-size: 1.3rem;
+  }
+  
   .actions-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .action-btn {
+    padding: 1.2rem;
+    min-height: 80px;
+  }
+  
+  .action-icon {
+    font-size: 1.3rem;
   }
   
   .wallet-overview,
@@ -810,26 +857,80 @@
     padding: 1.5rem;
   }
   
+  .wallet-balance {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .balance-icon {
+    font-size: 2.5rem;
+  }
+  
   .balance-amount {
-    font-size: 2rem;
+    font-size: 2.5rem;
+  }
+  
+  .balance-label {
+    font-size: 1rem;
   }
   
   .transaction-item,
   .history-item {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
+    gap: 0.8rem;
+    padding: 1.2rem;
   }
   
   .transaction-details,
   .history-details {
     width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .transaction-icon,
+  .history-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .progress-circle {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .progress-number {
+    font-size: 1.5rem;
+  }
+  
+  .activity-item {
+    padding: 1.2rem;
+  }
+  
+  .activity-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .activity-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 }
 
 @media (max-width: 480px) {
+  .dashboard-header {
+    padding: 1rem;
+  }
+  
   .welcome-text {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
   
   .user-avatar {
@@ -845,20 +946,120 @@
     padding: 1rem;
   }
   
-  .stat-number {
+  .stat-icon {
     font-size: 1.5rem;
   }
   
-  .tab-btn {
-    padding: 0.6rem 0.8rem;
+  .stat-number {
+    font-size: 1.4rem;
+  }
+  
+  .stat-label {
     font-size: 0.8rem;
+  }
+  
+  .dashboard-tabs {
+    padding: 0 0.5rem;
+    gap: 0.3rem;
+  }
+  
+  .tab-btn {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.8rem;
+    min-width: 100px;
+  }
+  
+  .tab-icon {
+    font-size: 0.9rem;
+  }
+  
+  .tab-content {
+    padding: 0 0.5rem;
+  }
+  
+  .overview-card {
+    padding: 1.2rem;
+  }
+  
+  .card-header h3 {
+    font-size: 1.1rem;
+  }
+  
+  .card-icon {
+    font-size: 1.2rem;
   }
   
   .actions-grid {
     grid-template-columns: 1fr;
+    gap: 0.8rem;
   }
   
   .action-btn {
     padding: 1rem;
+    min-height: 70px;
+  }
+  
+  .action-icon {
+    font-size: 1.2rem;
+  }
+  
+  .wallet-overview,
+  .transaction-history,
+  .history-section {
+    padding: 1.2rem;
+  }
+  
+  .balance-amount {
+    font-size: 2rem;
+  }
+  
+  .balance-icon {
+    font-size: 2rem;
+  }
+  
+  .transaction-item,
+  .history-item {
+    padding: 1rem;
+  }
+  
+  .transaction-icon,
+  .history-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+  
+  .progress-circle {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .progress-number {
+    font-size: 1.3rem;
+  }
+  
+  .activity-item {
+    padding: 1rem;
+  }
+  
+  .activity-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Touch-friendly improvements for mobile */
+@media (max-width: 768px) {
+  .tab-btn, .action-btn, .book-pickup-btn {
+    min-height: 44px; /* Apple's recommended touch target size */
+  }
+  
+  .transaction-item, .history-item, .activity-item {
+    min-height: 60px; /* Better touch targets for list items */
+  }
+  
+  .stat-card {
+    min-height: 60px;
   }
 }

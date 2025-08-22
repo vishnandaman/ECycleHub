@@ -208,10 +208,10 @@ const About = () => {
 						/>
 					</div>
 
-					{/* Cofounders Cards */}
+					{/* Cofounders Cards - Mobile Responsive */}
 					<div style={{ 
 						display: "grid", 
-						gridTemplateColumns: "repeat(4, 1fr)", 
+						gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", 
 						gap: "1.5rem", 
 						marginTop: "2rem" 
 					}}>
@@ -223,7 +223,11 @@ const About = () => {
 							boxShadow: "var(--shadow-md)", 
 							transition: "transform .3s ease", 
 							borderTop: "4px solid var(--color-primary)",
-							cursor: "pointer"
+							cursor: "pointer",
+							minHeight: "280px",
+							display: "flex",
+							flexDirection: "column",
+							justifyContent: "space-between"
 						}} 
 						onClick={() => window.open("https://www.linkedin.com/in/vivek-vitekari/", "_blank")}
 						onMouseEnter={(e) => e.target.style.transform = "translateY(-5px)"}
@@ -232,12 +236,14 @@ const About = () => {
 							<div style={{ fontSize: "3rem", color: "var(--color-primary)", marginBottom: "1rem" }}>
 								<FaUsers />
 							</div>
-							<h3 style={{ fontSize: "1.5rem", fontWeight: "600", color: "var(--color-text)", marginBottom: "1rem" }}>
-								Vivek Vitekari
-							</h3>
-							<p style={{ color: "var(--color-muted)", lineHeight: "1.6", marginBottom: "1.5rem" }}>
-								Developer & Cofounder
-							</p>
+							<div>
+								<h3 style={{ fontSize: "1.5rem", fontWeight: "600", color: "var(--color-text)", marginBottom: "1rem" }}>
+									Vivek Vitekari
+								</h3>
+								<p style={{ color: "var(--color-muted)", lineHeight: "1.6", marginBottom: "1.5rem" }}>
+									Developer & Cofounder
+								</p>
+							</div>
 							<a 
 								href="https://www.linkedin.com/in/vivek-vitekari/" 
 								target="_blank" 
@@ -245,14 +251,19 @@ const About = () => {
 								style={{
 									display: "inline-flex",
 									alignItems: "center",
+									justifyContent: "center",
 									gap: "0.5rem",
-									padding: "0.5rem 1rem",
+									padding: "0.8rem 1.5rem",
 									background: "var(--color-primary)",
 									color: "#fff",
 									borderRadius: "20px",
 									textDecoration: "none",
 									fontWeight: "600",
-									transition: "all .3s ease"
+									transition: "all .3s ease",
+									minHeight: "44px",
+									width: "100%",
+									maxWidth: "200px",
+									margin: "0 auto"
 								}}
 								onMouseEnter={(e) => e.target.style.background = "var(--color-primary-2)"}
 								onMouseLeave={(e) => e.target.style.background = "var(--color-primary)"}
@@ -270,7 +281,11 @@ const About = () => {
 							boxShadow: "var(--shadow-md)", 
 							transition: "transform .3s ease", 
 							borderTop: "4px solid var(--color-primary)",
-							cursor: "pointer"
+							cursor: "pointer",
+							minHeight: "280px",
+							display: "flex",
+							flexDirection: "column",
+							justifyContent: "space-between"
 						}} 
 						onClick={() => window.open("https://www.linkedin.com/in/prasad-koli-025123261/", "_blank")}
 						onMouseEnter={(e) => e.target.style.transform = "translateY(-5px)"}
@@ -279,12 +294,14 @@ const About = () => {
 							<div style={{ fontSize: "3rem", color: "var(--color-primary)", marginBottom: "1rem" }}>
 								<FaUsers />
 							</div>
-							<h3 style={{ fontSize: "1.5rem", fontWeight: "600", color: "var(--color-text)", marginBottom: "1rem" }}>
-								Prasad Koli
-							</h3>
-							<p style={{ color: "var(--color-muted)", lineHeight: "1.6", marginBottom: "1.5rem" }}>
-								Founder
-							</p>
+							<div>
+								<h3 style={{ fontSize: "1.5rem", fontWeight: "600", color: "var(--color-text)", marginBottom: "1rem" }}>
+									Prasad Koli
+								</h3>
+								<p style={{ color: "var(--color-muted)", lineHeight: "1.6", marginBottom: "1.5rem" }}>
+									Founder
+								</p>
+							</div>
 							<a 
 								href="https://www.linkedin.com/in/prasad-koli-025123261/" 
 								target="_blank" 
@@ -292,14 +309,19 @@ const About = () => {
 								style={{
 									display: "inline-flex",
 									alignItems: "center",
+									justifyContent: "center",
 									gap: "0.5rem",
-									padding: "0.5rem 1rem",
+									padding: "0.8rem 1.5rem",
 									background: "var(--color-primary)",
 									color: "#fff",
 									borderRadius: "20px",
 									textDecoration: "none",
 									fontWeight: "600",
-									transition: "all .3s ease"
+									transition: "all .3s ease",
+									minHeight: "44px",
+									width: "100%",
+									maxWidth: "200px",
+									margin: "0 auto"
 								}}
 								onMouseEnter={(e) => e.target.style.background = "var(--color-primary-2)"}
 								onMouseLeave={(e) => e.target.style.background = "var(--color-primary)"}
@@ -317,7 +339,11 @@ const About = () => {
 							boxShadow: "var(--shadow-md)", 
 							transition: "transform .3s ease", 
 							borderTop: "4px solid var(--color-primary)",
-							cursor: "pointer"
+							cursor: "pointer",
+							minHeight: "280px",
+							display: "flex",
+							flexDirection: "column",
+							justifyContent: "space-between"
 						}}
 						onClick={() => window.open("https://www.linkedin.com/in/sakshi-pawar-19a84a345/", "_blank")}
 						onMouseEnter={(e) => e.target.style.transform = "translateY(-5px)"}
@@ -326,12 +352,14 @@ const About = () => {
 							<div style={{ fontSize: "3rem", color: "var(--color-primary)", marginBottom: "1rem" }}>
 								<FaUsers />
 							</div>
-							<h3 style={{ fontSize: "1.5rem", fontWeight: "600", color: "var(--color-text)", marginBottom: "1rem" }}>
-								Sakshi Pawar
-							</h3>
-							<p style={{ color: "var(--color-muted)", lineHeight: "1.6", marginBottom: "1.5rem" }}>
-								Cofounder Operations & Logistics
-							</p>
+							<div>
+								<h3 style={{ fontSize: "1.5rem", fontWeight: "600", color: "var(--color-text)", marginBottom: "1rem" }}>
+									Sakshi Pawar
+								</h3>
+								<p style={{ color: "var(--color-muted)", lineHeight: "1.6", marginBottom: "1.5rem" }}>
+									Cofounder Operations & Logistics
+								</p>
+							</div>
 							<a 
 								href="https://www.linkedin.com/in/sakshi-pawar-19a84a345/" 
 								target="_blank" 
@@ -339,14 +367,19 @@ const About = () => {
 								style={{
 									display: "inline-flex",
 									alignItems: "center",
+									justifyContent: "center",
 									gap: "0.5rem",
-									padding: "0.5rem 1rem",
+									padding: "0.8rem 1.5rem",
 									background: "var(--color-primary)",
 									color: "#fff",
 									borderRadius: "20px",
 									textDecoration: "none",
 									fontWeight: "600",
-									transition: "all .3s ease"
+									transition: "all .3s ease",
+									minHeight: "44px",
+									width: "100%",
+									maxWidth: "200px",
+									margin: "0 auto"
 								}}
 								onMouseEnter={(e) => e.target.style.background = "var(--color-primary-2)"}
 								onMouseLeave={(e) => e.target.style.background = "var(--color-primary)"}
@@ -364,7 +397,11 @@ const About = () => {
 							boxShadow: "var(--shadow-md)", 
 							transition: "transform .3s ease", 
 							borderTop: "4px solid var(--color-primary)",
-							cursor: "pointer"
+							cursor: "pointer",
+							minHeight: "280px",
+							display: "flex",
+							flexDirection: "column",
+							justifyContent: "space-between"
 						}}
 						onClick={() => window.open("https://www.linkedin.com/in/aman-vishwakarma-x018730/", "_blank")}
 						onMouseEnter={(e) => e.target.style.transform = "translateY(-5px)"}
@@ -373,12 +410,14 @@ const About = () => {
 							<div style={{ fontSize: "3rem", color: "var(--color-primary)", marginBottom: "1rem" }}>
 								<FaUsers />
 							</div>
-							<h3 style={{ fontSize: "1.5rem", fontWeight: "600", color: "var(--color-text)", marginBottom: "1rem" }}>
-								Aman Vishwakarma
-							</h3>
-							<p style={{ color: "var(--color-muted)", lineHeight: "1.6", marginBottom: "1.5rem" }}>
-								Developer & Cofounder
-							</p>
+							<div>
+								<h3 style={{ fontSize: "1.5rem", fontWeight: "600", color: "var(--color-text)", marginBottom: "1rem" }}>
+									Aman Vishwakarma
+								</h3>
+								<p style={{ color: "var(--color-muted)", lineHeight: "1.6", marginBottom: "1.5rem" }}>
+									Developer & Cofounder
+								</p>
+							</div>
 							<a 
 								href="https://www.linkedin.com/in/aman-vishwakarma-x018730/" 
 								target="_blank" 
@@ -386,14 +425,19 @@ const About = () => {
 								style={{
 									display: "inline-flex",
 									alignItems: "center",
+									justifyContent: "center",
 									gap: "0.5rem",
-									padding: "0.5rem 1rem",
+									padding: "0.8rem 1.5rem",
 									background: "var(--color-primary)",
 									color: "#fff",
 									borderRadius: "20px",
 									textDecoration: "none",
 									fontWeight: "600",
-									transition: "all .3s ease"
+									transition: "all .3s ease",
+									minHeight: "44px",
+									width: "100%",
+									maxWidth: "200px",
+									margin: "0 auto"
 								}}
 								onMouseEnter={(e) => e.target.style.background = "var(--color-primary-2)"}
 								onMouseLeave={(e) => e.target.style.background = "var(--color-primary)"}
@@ -497,6 +541,7 @@ const About = () => {
 							style={{
 								display: "inline-flex",
 								alignItems: "center",
+								justifyContent: "center",
 								gap: "0.5rem",
 								padding: "1rem 2rem",
 								background: "rgba(255,255,255,0.1)",
@@ -505,7 +550,8 @@ const About = () => {
 								textDecoration: "none",
 								fontWeight: "600",
 								border: "1px solid rgba(255,255,255,0.2)",
-								transition: "all .3s ease"
+								transition: "all .3s ease",
+								minHeight: "48px"
 							}}
 							onMouseEnter={(e) => {
 								e.target.style.background = "rgba(255,255,255,0.2)";
